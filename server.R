@@ -11,6 +11,8 @@ library(TTR)
 library(zoo)
 source("tradedynamic.R")
 
+load_symbols <- readRDS("all_symbols.Rds")
+
 getQuote_ <- function(ticks) {
 qRoot <- "https://query1.finance.yahoo.com/v7/finance/quote?fields=symbol,longName,regularMarketTime,regularMarketPreviousClose,regularMarketChange,regularMarketOpen,regularMarketDayHigh,regularMarketDayLow,regularMarketVolume&formatted=false&symbols="
 z <- fromJSON(paste(qRoot, paste(ticks, collapse=","), sep=""))
