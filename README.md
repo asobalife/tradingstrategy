@@ -4,4 +4,4 @@ This R Shiny application is meant to support the development of technical analys
 To enter the custom trading strategy, see the example R code named rscriptfortest.R
 
 This application could be found online on the following url:
-
+https://shingi.shinyapps.io/tradingstrategy/
