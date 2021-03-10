@@ -3,6 +3,10 @@ library(shinyWidgets)
 library(shinyjs)
 library(dygraphs)
 library(shinythemes)
+
+load_symbols <- readRDS("all_symbols.Rds")
+
+
 shinyUI(fluidPage(
   useShinyjs(),
   theme = shinytheme("lumen"),
