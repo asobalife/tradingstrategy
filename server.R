@@ -11,6 +11,10 @@ library(TTR)
 library(zoo)
 source("tradedynamic.R")
 
+
+load_symbols <- readRDS("all_symbols.Rds")
+
+
 getQuote_ <- function(ticks) {
 qRoot <- "https://query1.finance.yahoo.com/v7/finance/quote?fields=symbol,longName,regularMarketTime,regularMarketPreviousClose,regularMarketChange,regularMarketOpen,regularMarketDayHigh,regularMarketDayLow,regularMarketVolume&formatted=false&symbols="
 z <- fromJSON(paste(qRoot, paste(ticks, collapse=","), sep=""))
@@ -756,6 +760,7 @@ else if(selboxindG() == 4){sma1()}else if(selboxindG() == 5){smi1()[,1]}else if(
     }
   )
   
+
   observeEvent(input$analyzeG,{
        individual_report(input$symb,input$dateG[1],input$dateG[2],dataInput()[,4],optimalret(),analsign$d,selboxindG())
   })
