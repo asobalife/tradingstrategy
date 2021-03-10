@@ -19,7 +19,7 @@ shinyUI(fluidPage(
                   separator = " - ")),
          hidden(selectInput("indicatorG", 
         label = "Indicator",
-        choices = load_symbols,
+        choices = list("RSI","CCI","Bbands","SMA", "SMI","SAR"),
         selected = "SMA")),
 	hidden( switchInput(inputId = "checkG",value = TRUE, onLabel = "Smaller",
   	offLabel = "Greater",offStatus="primary")),
