@@ -74,8 +74,9 @@ shinyUI(fluidPage(
                         column(5,  hidden(textOutput("txanal3")))
                         ), 
       fluidRow(
-      column(10,hidden(actionButton(inputId = "ReportA",label = "Generate Report",width = "280px",style="color: #fff; background-color: #337ab7; border-color: #2e6da4")))
-                        ),
+      column(10,hidden(actionButton(inputId = "ReportA",label = "Generate Report",width = "280px",style="color: #fff; background-color: #337ab7; border-color: #2e6da4"))),
+      column(10,hidden(downloadButton(outputId = "downloadReport",label = "Download Report",width = "280px",style="color: #fff; background-color: #337ab7; border-color: #2e6da4")))
+      ),
       fluidRow(
 			column(12,textOutput("textn2"))
 			),
