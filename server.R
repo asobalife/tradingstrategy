@@ -718,9 +718,44 @@ else if(selboxindG() == 4){sma1()}else if(selboxindG() == 5){smi1()[,1]}else if(
 	op$a10 <- analysis_strategy(sma1(),dataInput()[,4],2)
 	op$a11 <- analysis_strategy(smi1()[,1],dataInput()[,4],2)
 	op$a12 <- analysis_strategy(sar1(),dataInput()[,4],2)
-        write_report(input$symb,input$dateG[1],input$dateG[2],op$a1,op$a2,op$a3,op$a4,op$a5,op$a6,op$a7,op$a8,op$a9,op$a10,op$a11,op$a12,dataInput()[,4],RSindex(),CCindex(),BBandsc()[,2],sma1(),smi1()[,1],sar1())
+	toggle("downloadReport")
+        #write_report(input$symb,input$dateG[1],input$dateG[2],op$a1,op$a2,op$a3,op$a4,op$a5,op$a6,op$a7,op$a8,op$a9,op$a10,op$a11,op$a12,dataInput()[,4],RSindex(),CCindex(),BBandsc()[,2],sma1(),smi1()[,1],sar1(),filename="aaa.txt")
 
   })
+  
+  output$downloadReport <- downloadHandler(
+    filename = function() {
+      paste("analysis-report-", Sys.Date(), ".txt", sep="")
+    },
+    content = function(file) {
+      write_report(
+        input$symb,
+        input$dateG[1],
+        input$dateG[2],
+        op$a1,
+        op$a2,
+        op$a3,
+        op$a4,
+        op$a5,
+        op$a6,
+        op$a7,
+        op$a8,
+        op$a9,
+        op$a10,
+        op$a11,
+        op$a12,
+        dataInput()[, 4],
+        RSindex(),
+        CCindex(),
+        BBandsc()[, 2],
+        sma1(),
+        smi1()[, 1],
+        sar1(),
+        filename=file
+      )
+    }
+  )
+  
   observeEvent(input$analyzeG,{
        individual_report(input$symb,input$dateG[1],input$dateG[2],dataInput()[,4],optimalret(),analsign$d,selboxindG())
   })
