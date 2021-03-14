@@ -11,7 +11,7 @@ shinyUI(fluidPage(
   useShinyjs(),
   theme = shinytheme("lumen"),
   #shinyWidgets::shinyWidgetsGallery(),
-  titlePanel("Stock Price"),
+  titlePanel("Stock Trading Strategy Builder"),
   sidebarLayout(
     sidebarPanel(
 	 hidden( dateRangeInput("dateG",'Date input: yyyy-mm-dd',                  
